@@ -1,0 +1,4 @@
+#说明，使用Sqoop可以实现Hive和MySQL之间的数据导入导出操作。华为云提供的loader对sqoop做了封装，如果不用华为的loader（需在华为云管理界面中使用），可以自己在master1上解压安装sqoop，建议不要在环境变量里修改sqoop，避免影响华为云的服务。sqoop的安装参考第二部分实验（Hive部分）中普开平台上sqoop的安装使用的相关实验。
+#示例，在华为云的master节点上用自己安装的sqoop完成数据导出方法： 
+
+bin/sqoop export --connect jdbc:mysql://node-master1dASy:3306/mydata --username hadoop --password hadoop --table result --export-dir 'hdfs://hacluster/user/hive/warehouse/mydata.db/result' --fields-terminated-by ','
